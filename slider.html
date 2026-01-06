@@ -1,0 +1,72 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <style>
+        .slider{
+                    width:20%;
+            position: relative;
+                        
+
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .pre {
+            left: 5px;
+            border-radius: 40%;
+
+        }
+
+        .next {
+            right: 30px;
+            border-radius: 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="slider">
+    <img class="slide" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcT0QGetG2uzAvnYBjODTUeGzqZjpcfsUUQ&s">
+    <img class="slide" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFYqoKTu_o3Zns2yExbst2Co84Gpc2Q1RJbA&s">
+    <img class="slide" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcT0QGetG2uzAvnYBjODTUeGzqZjpcfsUUQ&s">
+
+    <button class="pre" onclick="prevSlide()">Prev</button>
+    <button class="next" onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.style.display = "none");
+        slides[index].style.display = "block";
+    }
+
+    function nextSlide() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    
+    showSlide(slideIndex);
+</script>
+
+</body>
+</html> 
